@@ -65,6 +65,6 @@ Generating synthetic patient profiles for research
 👩‍💻 Author
 
 Josmy Mathew
-📧 [Your Email]
-🔗 [LinkedIn Profile]
-💻 [GitHub Profile]
+📧josmyrose@gmail.com
+🔗 LinkedIn Profile:https://www.linkedin.com/in/josmymathew/
+
