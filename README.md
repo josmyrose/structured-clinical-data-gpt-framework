@@ -1,4 +1,6 @@
 🧬 Structured Clinical Data – GPT Framework
+
+
 📘 Project Overview
 
 This project explores how Generative Pretrained Transformers (GPT) can be applied to structured clinical and biomedical data for predictive analysis, data imputation, and synthetic data generation.
