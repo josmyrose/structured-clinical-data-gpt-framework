@@ -1,70 +1,45 @@
-🧬 Structured Clinical Data – GPT Framework
 
 
-📘 Project Overview
+# 🧬 Digital Clinical ML: AI-based Digital Twin Models for Structured Clinical Data
+**Author:** Josmy Mathew  
+**Date:** November 2025  
 
-This project explores how Generative Pretrained Transformers (GPT) can be applied to structured clinical and biomedical data for predictive analysis, data imputation, and synthetic data generation.
-The goal is to develop a digital twin model for patients, focusing on lung disease–related data, to simulate and predict health outcomes.
+---
 
-🎯 Objectives
+## 🌟 Overview
+This project develops an **AI-based digital twin framework** for structured clinical data.  
+Using transformer (GPT-style) architectures, the goal is to model patient-level time-series data for:
 
-Adapt existing GPT/LLM frameworks to process structured numeric biomedical data
+- 🔮 Predictive analytics (forecasting future lab/vital values)  
+- 🧩 Imputation of missing clinical data  
+- 🧠 Generation of realistic synthetic patient records  
 
-Prepare and integrate time-series clinical data from multiple patient visits
+The work focuses on **lung-related disease cohorts** and demonstrates how large language model (LLM) principles can be adapted to **numeric biomedical data**.
 
-Train and evaluate models for disease prediction and missing data imputation
+---
 
-Generate synthetic patient data for research and analysis
+## 📊 Dataset Structure
+| Table | Description | Key Columns |
+|:-------|:-------------|:-------------|
+| **Patients** | Demographics and static variables | Id, BIRTHDATE, GENDER, RACE, INCOME |
+| **Encounters** | Hospital visits | Id, PATIENT, START, STOP, DESCRIPTION |
+| **Observations** | Labs / vitals | DATE, PATIENT, ENCOUNTER, VALUE, UNITS |
+| **Conditions** | Diagnoses | START, STOP, PATIENT, DESCRIPTION |
 
-⚙️ Technologies Used
+---
 
-Python 3.x
+## ⚙️ Project Workflow
+1. **Data preparation & datetime parsing**  
+2. **Merge encounters, observations, and conditions**  
+3. **Construct patient-level event sequences**  
+4. **Encode features, numeric values, and time gaps**  
+5. **Train transformer (MiniGPT) for imputation & forecasting**  
+6. **Evaluate and generate synthetic trajectories**
 
-PyTorch / TensorFlow
+<p align="center">
+  <img src="assets/workflow_diagram.png" width="650">
+</p>
 
-Transformers (Hugging Face)
+---
 
-Pandas, NumPy, Matplotlib, Scikit-learn
-
-🧪 Project Structure
-clinical-gpt-framework/
-│
-├── data/                  # sample or preprocessed datasets
-├── notebooks/             # Google Colab or Jupyter notebooks
-│   ├── 01_data_preparation.ipynb
-│   ├── 02_model_training.ipynb
-│   ├── 03_prediction_analysis.ipynb
-│
-├── src/                   # helper Python scripts
-│   ├── data_utils.py
-│   ├── model_utils.py
-│
-├── requirements.txt       # dependencies
-└── README.md              # project documentation
-
-🧠 Learning Outcomes
-
-Understand how GPT-like architectures can process tabular clinical data
-
-Apply machine learning pipelines to biomedical datasets
-
-Perform predictive modeling and synthetic data generation
-
-Evaluate and visualize model performance
-
-📊 Sample Results
-
-Example tasks included:
-
-Predicting patient outcomes based on clinical metrics
-
-Imputing missing values using transformer-based models
-
-Generating synthetic patient profiles for research
-
-👩‍💻 Author
-
-Josmy Mathew
-📧josmyrose@gmail.com
-🔗 LinkedIn Profile:https://www.linkedin.com/in/josmymathew/
-
+## 📚 Repository Structure
