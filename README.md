@@ -42,4 +42,37 @@ The work focuses on **lung-related disease cohorts** and demonstrates how large 
 
 ---
 
+## 🧠 Model Architecture
+
+The **MiniTransformer** is a lightweight GPT-style model designed for structured clinical time-series data.
+
+It uses **three embedding streams** to represent each event:
+
+- 🧩 **Feature ID → Embedding**
+- 🔢 **Numeric Value → Linear Projection (MLP)**
+- ⏱️ **Time Delta → Linear Embedding**
+
+This allows the model to learn relationships between different lab values, vital signs, and time intervals — similar to how GPT learns relationships between words.
+
+```python
+import torch
+import torch.nn as nn
+
+class MiniTransformer(nn.Module):
+    def __init__(self, n_feats, embed_dim=128):
+        super().__init__()
+        self.feat_emb  = nn.Embedding(n_feats, embed_dim)
+        self.val_proj  = nn.Linear(1, embed_dim)
+        self.time_proj = nn.Linear(1, embed_dim)
+        enc = nn.TransformerEncoderLayer(d_model=embed_dim, nhead=4)
+        self.encoder   = nn.TransformerEncoder(enc, num_layers=3)
+        self.out       = nn.Linear(embed_dim, 1)
+
+    def forward(self, fids, vals, dts):
+        x = self.feat_emb(fids) + self.val_proj(vals.unsqueeze(-1)) + self.time_proj(dts.unsqueeze(-1))
+        x = self.encoder(x.permute(1,0,2)).permute(1,0,2)
+        return self.out(x)
+
+---
+
 ## 📚 Repository Structure
